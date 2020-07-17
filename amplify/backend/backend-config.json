@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"calculator2ab22355": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
