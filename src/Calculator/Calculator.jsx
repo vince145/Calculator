@@ -88,11 +88,11 @@ export default class Calculator extends React.Component {
   // Lists the last 10 calculations performed and their
   // answers
   CalculationList() {
-    var calculations = this.state.calculations;
+    const calculations = this.state.calculations;
     // var results = calculations.map((calculation) =>
     //  (calculation + ' = ' + math.evaluate(calculation)));
-    var results = calculations;
-    var listResults = results.map((result, index) =>
+    const results = calculations;
+    const listResults = results.map((result, index) =>
       <li key={index}> 
         {result}
       </li>
