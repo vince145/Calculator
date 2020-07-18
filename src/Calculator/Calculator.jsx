@@ -62,25 +62,6 @@ export default class Calculator extends React.Component {
     }
   }
 
-  /*
- createCalculation = async () => {
-  var { calcIndex, calcInput, calculations } = this.state;
-  if (calcInput) {
-    /*
-    const calculation = {calcIndex, calcInput};
-    calculations.unshift(calcInput);
-    // Handles limiting shown calculations to only 10 calculations
-    calculations.length =
-      calculations.length <= 10 ?
-      calculations.length : 10;
-    calcInput = '';
-    calcIndex += 1;
-    this.setState({calcIndex: calcIndex, calculations: calculations, calcInput: calcInput});
-    await API.graphql(graphqlOperation(createCalculation, {input: calculation}));
-    
-  }
-  */
-
   // Handles users typing into form
   handleChange = event => {
     this.setState({calcInput: event.target.value});
@@ -99,35 +80,6 @@ export default class Calculator extends React.Component {
     event.preventDefault();
     event.target.reset();
   };
-
-  /*
-
-  // Handles users submitting a calculation by
-  // using enter or clicking on the submit button
-  handleSubmit = event => {
-    // Try and catch handle invalid input for mathjs evaluate
-    this.setState({error: false});
-    if (this.state.calcInput) {
-      try {
-        math.evaluate(this.state.calcInput)
-      } catch (error) {
-        this.setState({error});
-        throw(error);
-      }
-      if (!this.state.error) {
-        this.state.calculations.unshift(this.state.calcInput);
-        // Handles limiting shown calculations to only 10 calculations
-        this.state.calculations.length = 
-          this.state.calculations.length <= 10 ?
-          this.state.calculations.length : 10;
-        this.setState({calcInput: ''});
-      }
-    }
-    event.preventDefault();
-    event.target.reset();
-  };
-
-  */
 
   // Lists the last 10 calculations performed and their
   // answers
