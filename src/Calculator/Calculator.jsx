@@ -16,9 +16,13 @@ export default class Calculator extends React.Component {
   }
 
   async fetchCalculations() {
-    const apiData = await API.graphql(graphqlOperation(listCalculations));
-    const calculations = apiData.data.listCalculations.items;
-    this.setState({calculations});
+    try {
+      const apiData = await API.graphql(graphqlOperation(listCalculations));
+      const calculations = apiData.data.listCalculations.items;
+      this.setState({calculations});
+    } catch (err) {
+      console.log('error: ', err);
+    }
   }
 
   // https://scotch.io/tutorials/graphql-api-with-aws-and-use-with-react
