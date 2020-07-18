@@ -15,7 +15,7 @@
         "name" : "Query",
         "description" : null,
         "fields" : [ {
-          "name" : "getCalculations",
+          "name" : "getCalculation",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -33,20 +33,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listCalculationss",
+          "name" : "listCalculations",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsFilterInput",
+              "name" : "ModelCalculationFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -71,7 +71,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelCalculationsConnection",
+            "name" : "ModelCalculationConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -83,7 +83,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Calculations",
+        "name" : "Calculation",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -101,7 +101,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "name",
+          "name" : "calcInput",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -112,17 +112,6 @@
               "name" : "String",
               "ofType" : null
             }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "description",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -190,7 +179,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelCalculationsConnection",
+        "name" : "ModelCalculationConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -201,7 +190,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "Calculations",
+              "name" : "Calculation",
               "ofType" : null
             }
           },
@@ -225,7 +214,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelCalculationsFilterInput",
+        "name" : "ModelCalculationFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -238,16 +227,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "name",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "description",
+          "name" : "calcInput",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -263,7 +243,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsFilterInput",
+              "name" : "ModelCalculationFilterInput",
               "ofType" : null
             }
           },
@@ -276,7 +256,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsFilterInput",
+              "name" : "ModelCalculationFilterInput",
               "ofType" : null
             }
           },
@@ -286,7 +266,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelCalculationsFilterInput",
+            "name" : "ModelCalculationFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -712,7 +692,7 @@
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
-          "name" : "createCalculations",
+          "name" : "createCalculation",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -722,7 +702,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateCalculationsInput",
+                "name" : "CreateCalculationInput",
                 "ofType" : null
               }
             },
@@ -732,20 +712,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsConditionInput",
+              "name" : "ModelCalculationConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateCalculations",
+          "name" : "updateCalculation",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -755,7 +735,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateCalculationsInput",
+                "name" : "UpdateCalculationInput",
                 "ofType" : null
               }
             },
@@ -765,20 +745,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsConditionInput",
+              "name" : "ModelCalculationConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteCalculations",
+          "name" : "deleteCalculation",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -788,7 +768,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteCalculationsInput",
+                "name" : "DeleteCalculationInput",
                 "ofType" : null
               }
             },
@@ -798,14 +778,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsConditionInput",
+              "name" : "ModelCalculationConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -817,7 +797,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateCalculationsInput",
+        "name" : "CreateCalculationInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -830,7 +810,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "name",
+          "name" : "calcInput",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -842,35 +822,17 @@
             }
           },
           "defaultValue" : null
-        }, {
-          "name" : "description",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelCalculationsConditionInput",
+        "name" : "ModelCalculationConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "name",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "description",
+          "name" : "calcInput",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -886,7 +848,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsConditionInput",
+              "name" : "ModelCalculationConditionInput",
               "ofType" : null
             }
           },
@@ -899,7 +861,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelCalculationsConditionInput",
+              "name" : "ModelCalculationConditionInput",
               "ofType" : null
             }
           },
@@ -909,7 +871,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelCalculationsConditionInput",
+            "name" : "ModelCalculationConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -919,7 +881,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateCalculationsInput",
+        "name" : "UpdateCalculationInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -936,16 +898,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "name",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "description",
+          "name" : "calcInput",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -959,7 +912,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteCalculationsInput",
+        "name" : "DeleteCalculationInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -980,34 +933,34 @@
         "name" : "Subscription",
         "description" : null,
         "fields" : [ {
-          "name" : "onCreateCalculations",
+          "name" : "onCreateCalculation",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateCalculations",
+          "name" : "onUpdateCalculation",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteCalculations",
+          "name" : "onDeleteCalculation",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Calculations",
+            "name" : "Calculation",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1157,25 +1110,6 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
-        "kind" : "ENUM",
-        "name" : "ModelSortDirection",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : [ {
-          "name" : "ASC",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "DESC",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "possibleTypes" : null
-      }, {
         "kind" : "INPUT_OBJECT",
         "name" : "ModelFloatInput",
         "description" : null,
@@ -1277,6 +1211,25 @@
         "inputFields" : null,
         "interfaces" : null,
         "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "ENUM",
+        "name" : "ModelSortDirection",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "ASC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "DESC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
@@ -2104,14 +2057,6 @@
         "onFragment" : false,
         "onField" : false
       }, {
-        "name" : "aws_oidc",
-        "description" : "Tells the service this field/object has access authorized by an OIDC token.",
-        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
-        "args" : [ ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
         "name" : "deprecated",
         "description" : null,
         "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
@@ -2125,6 +2070,14 @@
           },
           "defaultValue" : "\"No longer supported\""
         } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "aws_oidc",
+        "description" : "Tells the service this field/object has access authorized by an OIDC token.",
+        "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
+        "args" : [ ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false

@@ -1,43 +1,40 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createCalculations = /* GraphQL */ `
-  mutation CreateCalculations(
-    $input: CreateCalculationsInput!
-    $condition: ModelCalculationsConditionInput
+export const createCalculation = /* GraphQL */ `
+  mutation CreateCalculation(
+    $input: CreateCalculationInput!
+    $condition: ModelCalculationConditionInput
   ) {
-    createCalculations(input: $input, condition: $condition) {
+    createCalculation(input: $input, condition: $condition) {
       id
-      name
-      description
+      calcInput
       createdAt
       updatedAt
     }
   }
 `;
-export const updateCalculations = /* GraphQL */ `
-  mutation UpdateCalculations(
-    $input: UpdateCalculationsInput!
-    $condition: ModelCalculationsConditionInput
+export const updateCalculation = /* GraphQL */ `
+  mutation UpdateCalculation(
+    $input: UpdateCalculationInput!
+    $condition: ModelCalculationConditionInput
   ) {
-    updateCalculations(input: $input, condition: $condition) {
+    updateCalculation(input: $input, condition: $condition) {
       id
-      name
-      description
+      calcInput
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteCalculations = /* GraphQL */ `
-  mutation DeleteCalculations(
-    $input: DeleteCalculationsInput!
-    $condition: ModelCalculationsConditionInput
+export const deleteCalculation = /* GraphQL */ `
+  mutation DeleteCalculation(
+    $input: DeleteCalculationInput!
+    $condition: ModelCalculationConditionInput
   ) {
-    deleteCalculations(input: $input, condition: $condition) {
+    deleteCalculation(input: $input, condition: $condition) {
       id
-      name
-      description
+      calcInput
       createdAt
       updatedAt
     }
