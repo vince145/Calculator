@@ -1,5 +1,4 @@
-type Calculations @model {
+type Calculation @model {
   id: ID!
-  name: String!
-  description: String
+  calcInput: String!
 }

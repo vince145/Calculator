@@ -1,28 +1,26 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getCalculations = /* GraphQL */ `
-  query GetCalculations($id: ID!) {
-    getCalculations(id: $id) {
+export const getCalculation = /* GraphQL */ `
+  query GetCalculation($id: ID!) {
+    getCalculation(id: $id) {
       id
-      name
-      description
+      calcInput
       createdAt
       updatedAt
     }
   }
 `;
-export const listCalculationss = /* GraphQL */ `
-  query ListCalculationss(
-    $filter: ModelCalculationsFilterInput
+export const listCalculations = /* GraphQL */ `
+  query ListCalculations(
+    $filter: ModelCalculationFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listCalculationss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listCalculations(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        description
+        calcInput
         createdAt
         updatedAt
       }

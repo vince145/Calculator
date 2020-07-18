@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"calculator2ab22355": {
+		"calculator7fb127b8": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
