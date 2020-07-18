@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Calculator.css';
 import * as math from 'mathjs';
+import { API } from 'aws-amplify';
 
 export default class Calculator extends React.Component {
   constructor(props) {
