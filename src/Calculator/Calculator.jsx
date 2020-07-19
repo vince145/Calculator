@@ -5,6 +5,8 @@ import * as math from 'mathjs';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listCalculations } from '../graphql/queries';
 import { createCalculation } from '../graphql/mutations';
+import { deleteCalculation } from '../graphql/mutations';
+import { map } from 'mathjs';
 
 export default class Calculator extends React.Component {
   constructor(props) {
@@ -65,13 +67,6 @@ export default class Calculator extends React.Component {
         try {
           var calculation = { calcInput };
           calculations.unshift(calcInput);
-          // Handles limiting shown calculations to only 10 calculations
-          /*
-          calculations.length =
-            calculations.length <= 10 ?
-            calculations.length : 10;
-          */
-          // this.setState({calcInput: calcInput, calculations: calculations});
           await API.graphql(graphqlOperation(createCalculation, {input: calculation}));
           this.setState({calcInput: ''});
         } catch (err) {
@@ -79,6 +74,16 @@ export default class Calculator extends React.Component {
           return;
         }
       }
+    }
+  }
+
+  // Handles deleting calculations within the database
+  deleteCalculation = async (calculation) => {
+    try {
+      API.graphql(graphqlOperation(deleteCalculation, {calculation}));
+    } catch (err) {
+      console.log('error: ', err);
+      return;
     }
   }
 
@@ -100,10 +105,20 @@ export default class Calculator extends React.Component {
     event.target.reset();
   };
 
+  
   // Lists all calculations performed
   CalculationList() {
-    const calculations = this.state.calculations;
-    const results = calculations.map((calculation) =>
+    var calcsUnsorted = this.state.calculations;
+    // Sort calculations so most recent calculations appear first
+    const calculations = calcsUnsorted.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+    // Setup for deleting any calculation older than the 10 most recent calculations
+    /*
+    for (var index = 10; index < calculations.length; index++) {
+      this.deleteCalculation(calculations[index]);
+    }
+    */
+   // Only display the 10 most recent calculations
+    const results = calculations.slice(0,10).map((calculation) =>
       (String(calculation.calcInput) + ' = ' + math.evaluate(String(calculation.calcInput))));
     const listResults = results.map((result, index) =>
       <li key={index}> 
