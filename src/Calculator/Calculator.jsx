@@ -53,16 +53,17 @@ export default class Calculator extends React.Component {
 
   createCalculation = async () => {
     var {calcInput, calculations } = this.state;
+    var caughtError = 0;
     if (calcInput) {
       try {
         math.evaluate(calcInput)
       } catch (err) {
         this.setState({calcInput: ''});
-        this.setState({error : err});
+        caughtError = 1;
         console.log('error: ', err);
         return;
       }
-      if (!this.state.error) {
+      if (!caughtError) {
         try {
           var calculation = { calcInput };
           calculations.unshift(calcInput);
