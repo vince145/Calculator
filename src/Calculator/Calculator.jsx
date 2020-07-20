@@ -1,12 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './Calculator.css';
 import * as math from 'mathjs';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listCalculations } from '../graphql/queries';
 import { createCalculation } from '../graphql/mutations';
 import { deleteCalculation } from '../graphql/mutations';
-import { map } from 'mathjs';
 
 export default class Calculator extends React.Component {
   constructor(props) {
@@ -16,7 +14,6 @@ export default class Calculator extends React.Component {
       calculations: [],
     };
   }
-
   // Fetchs stored calculations in DynamoDB database
   // using graphQL and aws to communicate with database
   async fetchCalculations() {
@@ -59,6 +56,7 @@ export default class Calculator extends React.Component {
       try {
         math.evaluate(calcInput)
       } catch (err) {
+        this.setState({calcInput: ''});
         this.setState({error : err});
         console.log('error: ', err);
         return;
@@ -70,11 +68,14 @@ export default class Calculator extends React.Component {
           await API.graphql(graphqlOperation(createCalculation, {input: calculation}));
           this.setState({calcInput: ''});
         } catch (err) {
+          this.setState({calcInput: ''});
           console.log('error: ', err);
           return;
         }
       }
     }
+    this.setState({calcInput: ''});
+    return;
   }
 
   // Handles deleting calculations within the database
@@ -101,13 +102,12 @@ export default class Calculator extends React.Component {
     (async () => {
       await this.fetchCalculations();
     })();
-    event.preventDefault();
     event.target.reset();
   };
 
   
   // Lists all calculations performed
-  CalculationList() {
+  calculationList() {
     var calcsUnsorted = this.state.calculations;
     // Sort calculations so most recent calculations appear first
     const calculations = calcsUnsorted.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -130,10 +130,57 @@ export default class Calculator extends React.Component {
     )
   }
 
+
+  // Calculator button setup to be clicked on for input
+  // Provides the rendering properties of the buttons
+  CalcButton(props) {
+    return (
+      <button name = "calcButton" onClick={props.onClick}>
+        {props.value}
+      </button>
+    );
+  }
+
+  // Renders a calculator button using its values after
+  // it is clicked on
+  renderButton(i) {
+    return (
+      <this.CalcButton
+        value = {i}
+        onClick = {() => this.handleClick(i)}
+      />
+    );
+  }
+
+  // Handles clicks on calculator buttons
+  // and their associated actions
+  handleClick(i) {
+    switch(i) {
+      // Handle clearing input
+      case 'C':
+        const r1 = '';
+        this.setState({calcInput: r1});
+        break;
+      // Handle submitting answers
+      case '=':
+        const r2 = '';
+        this.setState({calcInput: r2});
+        (async () => {
+          await this.createCalculation();
+        })();
+        (async () => {
+          await this.fetchCalculations();
+        })();
+        break;
+      default:
+        var result = this.state.calcInput + String(i);
+        this.setState({calcInput: result});
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
-        IntervalExample();
         <div className="Calculator">
           <form onSubmit={this.handleSubmit}>
             <div className="Form">
@@ -152,7 +199,49 @@ export default class Calculator extends React.Component {
               />
             </div>
           </form>
-          <h4>{this.CalculationList()}</h4>
+          <div className="calcButtons">
+            <div className="calcButtonRow">
+              {this.renderButton('C')}
+              {this.renderButton('!')}
+              {this.renderButton('%')}
+              {this.renderButton('/')}
+              {this.renderButton('^')}
+              {this.renderButton('sin')}
+            </div>
+            <div className="calcButtonRow">
+              {this.renderButton('7')}
+              {this.renderButton('8')}
+              {this.renderButton('9')}
+              {this.renderButton('*')}
+              {this.renderButton('(')}
+              {this.renderButton('tan')}
+            </div>
+            <div className="calcButtonRow">
+              {this.renderButton('4')}
+              {this.renderButton('5')}
+              {this.renderButton('6')}
+              {this.renderButton('-')}
+              {this.renderButton(')')}
+              {this.renderButton('cos')}
+            </div>
+            <div className="calcButtonRow">
+              {this.renderButton('1')}
+              {this.renderButton('2')}
+              {this.renderButton('3')}
+              {this.renderButton('+')}
+              {this.renderButton('e')}
+              {this.renderButton('deg')}
+            </div>
+            <div className="calcButtonRow">
+              {this.renderButton('0')}
+              {this.renderButton('0')}
+              {this.renderButton('.')}
+              {this.renderButton('=')}
+              {this.renderButton('=')}
+              {this.renderButton('pi')}
+            </div>
+          </div>
+          <h4>{this.calculationList()}</h4>
         </div>
       </React.Fragment>
     );
