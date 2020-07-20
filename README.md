@@ -9,7 +9,7 @@ A simple multi-user calculator web app built using ReactJS utilizing AWS Amplify
 
 
 
-Example picture showcasing the AWS Amplify console in which the developer can modify the serverless hosting service.
+Example picture showcasing the AWS Amplify console in which the developer can modify the serverless hosting service. AWS allows for automatic deployment of the github repo to keep the hosted web app updated.
 
 ![AWS Amplify Console Example](https://raw.githubusercontent.com/vince145/Calculator/master/pictures/AWS%20Amplify%20Console%20example.PNG)
 
