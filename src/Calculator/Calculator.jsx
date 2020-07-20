@@ -14,6 +14,7 @@ export default class Calculator extends React.Component {
       calculations: [],
     };
   }
+  
   // Fetchs stored calculations in DynamoDB database
   // using graphQL and aws to communicate with database
   async fetchCalculations() {
@@ -131,14 +132,40 @@ export default class Calculator extends React.Component {
   }
 
 
+  // https://reactjs.org/tutorial/tutorial.html used for button types
   // Calculator button setup to be clicked on for input
   // Provides the rendering properties of the buttons
   CalcButton(props) {
-    return (
-      <button name = "calcButton" onClick={props.onClick}>
-        {props.value}
-      </button>
-    );
+    switch (props.value) {
+      case '0':
+        return (
+          <button className = "calcButtonZero" onClick={props.onClick}>
+            {props.value}
+          </button>
+        );
+      case '=':
+        return (
+          <button className = "calcButtonEquals" onClick={props.onClick}>
+            {props.value}
+          </button>
+        );
+      default:
+        if (((props.value < 10) & props.value > 0) ||
+            (props.value == '.')) {
+          return (
+            <button className = "calcButtonNum" onClick={props.onClick}>
+              {props.value}
+            </button>
+          );
+        } else {
+          return (
+            <button className = "calcButton" onClick={props.onClick}>
+              {props.value}
+            </button>
+          );
+        }
+
+    }
   }
 
   // Renders a calculator button using its values after
@@ -192,12 +219,6 @@ export default class Calculator extends React.Component {
                   />
                 </label>
             </div>
-            <div className="Submit">
-              <input
-                type="submit"
-                value="Submit"
-              />
-            </div>
           </form>
           <div className="calcButtons">
             <div className="calcButtonRow">
@@ -234,9 +255,7 @@ export default class Calculator extends React.Component {
             </div>
             <div className="calcButtonRow">
               {this.renderButton('0')}
-              {this.renderButton('0')}
               {this.renderButton('.')}
-              {this.renderButton('=')}
               {this.renderButton('=')}
               {this.renderButton('pi')}
             </div>
