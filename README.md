@@ -5,9 +5,13 @@ A simple multi-user calculator web app built using ReactJS utilizing AWS Amplify
 ![Calculator Web App Example](https://raw.githubusercontent.com/vince145/Calculator/master/pictures/Calculator%20Web%20App%20Example.PNG)
 
 
+
 Example picture showcasing the AWS Amplify console in which the developer can modify the serverless hosting service.
+
 ![AWS Amplify Console Example](https://raw.githubusercontent.com/vince145/Calculator/master/pictures/AWS%20Amplify%20Console%20example.PNG)
 
 
+
 Example picture showcasing the AWS Dynamo database in which the calculations are stored at online.
+
 ![AWS DynamoDB Example](https://raw.githubusercontent.com/vince145/Calculator/master/pictures/AWS%20DynamoDB%20example.PNG)
