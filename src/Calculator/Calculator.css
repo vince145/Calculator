@@ -5,6 +5,7 @@
 body {
   background-color: black;
   padding: 10px;
+  overflow: hidden;
 }
 
 /* Styling for the calculator input form */
@@ -67,3 +68,4 @@ ul {
   position: relative;
   list-style-type: none;
 }
+
