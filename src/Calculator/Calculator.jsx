@@ -14,7 +14,7 @@ export default class Calculator extends React.Component {
       calculations: [],
     };
   }
-  
+   
   // Fetchs stored calculations in DynamoDB database
   // using graphQL and aws to communicate with database
   async fetchCalculations() {
