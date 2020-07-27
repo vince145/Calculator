@@ -1,28 +1,28 @@
 {
-	"auth": {
-		"calculator7fb127b8": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
-		}
-	},
-	"api": {
-		"calculator": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "API_KEY",
-						"apiKeyConfig": {
-							"description": "demo",
-							"apiKeyExpirationDays": 7
-						}
-					}
-				}
-			}
-		}
-	}
+    "auth": {
+        "calculator7fb127b8": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false
+        }
+    },
+    "api": {
+        "calculator": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [],
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "description": "demo",
+                            "apiKeyExpirationDays": 7
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
