@@ -18,7 +18,7 @@
                         "authenticationType": "API_KEY",
                         "apiKeyConfig": {
                             "description": "demo",
-                            "apiKeyExpirationDays": 7
+                            "apiKeyExpirationDays": 62
                         }
                     }
                 }
